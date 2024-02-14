@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>New Car</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input type="text" label="Picture" [(ngModel)]="car.pictureLink"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Brand" [(ngModel)]="car.brand"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Model" [(ngModel)]="car.model"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Country" [(ngModel)]="car.country"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Top Speed" [(ngModel)]="car.speed"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Power" [(ngModel)]="car.hp"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Torque" [(ngModel)]="car.torque"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Weight" [(ngModel)]="car.weight"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" label="Price" [(ngModel)]="car.price"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-toggle label="Electric"  [(ngModel)]="car.electric"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" label="Date" [(ngModel)]="car.releaseDate"></ion-input>
+  </ion-item>
+
+  <p class="text-center">
+    <ion-button (click)="add()">Envoyer</ion-button>
+  </p>
+</ion-content>

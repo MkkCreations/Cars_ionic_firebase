@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FilmNewPage } from './film-new.page';
+import { CarNewPage } from './car-new.page';
 
-describe('FilmNewPage', () => {
-  let component: FilmNewPage;
-  let fixture: ComponentFixture<FilmNewPage>;
+describe('CarNewPage', () => {
+  let component: CarNewPage;
+  let fixture: ComponentFixture<CarNewPage>;
 
   beforeEach(async(() => {
-    fixture = TestBed.createComponent(FilmNewPage);
+    fixture = TestBed.createComponent(CarNewPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
