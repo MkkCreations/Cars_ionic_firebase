@@ -68,4 +68,8 @@ export class CarPage implements OnInit {
     this.Car.delete(id);
     this.router.navigate(['/cars']);
   }
+
+  onCancel() {
+    this.modif = false;
+  }
 }

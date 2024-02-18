@@ -7,55 +7,101 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-button (click)="setModif()">Turn editable</ion-button>
+  
   <div *ngIf="!modif">
+    <ion-row class="car-container__btns">
+      <ion-col>
+        <ion-button (click)="setModif()" color="warning">
+          <ion-icon name="pencil"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onDelete(car.id)" color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
     <ion-grid *ngIf="car">
       <ion-row>
+      </ion-row>
+      <ion-row class="mb-3">
+        <img [src]="car.pictureLink" [alt]="car.model">
+      </ion-row>
+
+      <ion-row class="mr-3 ml-3">
         <ion-col>
-          <strong>Electric :</strong>
-          <ion-icon *ngIf="car.electric" name="checkmark"></ion-icon>
-          <ion-icon *ngIf="!car.electric" name="close-circle"></ion-icon>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                {{ car.brand }} {{ car.model }}
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              The {{ car.brand }} {{ car.model }} is a car from {{ car.country }}. {{ car.electric ? "It is an electric car." : "It is a combustion car" }} with a power of {{ car.hp }} HP and a torque of {{ car.torque }} Nm. It has a top speed of {{ car.speed }} Km/h, a weight of {{ car.weight }} Kg and a price of {{ car.price }} €. It was released on {{ car.releaseDate }}.
+            </ion-card-content>
+          </ion-card>
         </ion-col>
+      </ion-row>
+
+      <ion-row>
         <ion-col>
-          <ion-button (click)="onDelete(car.id)">
-            <ion-icon name="trash"></ion-icon>
-          </ion-button>
+          <h2>
+            Technical Data
+          </h2>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col>
-          <img [src]="car.pictureLink" [alt]="car.model">
-        </ion-col>
-        <ion-col>
-          <strong>Brand</strong><br>
-          {{car.brand}} <br>
-          <strong>Model</strong><br>
-          {{car.model}} <br>
-          <strong>Country</strong><br>
-          {{car.country}} <br>
-          <strong>Top Speed</strong><br>
-          {{car.speed}} <br>
-          <strong>Power</strong><br>
-          {{car.hp}} <br>
-          <strong>Torque</strong><br>
-          {{car.torque}} <br>
-          <strong>Weight</strong><br>
-          {{car.weight}} <br>
-          <strong>Price</strong><br>
-          {{car.price}} <br>
-          <strong>Release Date</strong><br>
-          {{car.releaseDate}} <br>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <strong>Country</strong><br>
-          {{car.country}} <br>
-        </ion-col>
+        <table
+          class="table table-dark table-striped table-bordered"
+        >
+          <tr>
+            <th>Brand</th>
+            <td>{{ car.brand }}</td>
+          </tr>
+          <tr>
+            <th>Model</th>
+            <td>{{ car.model }}</td>
+          </tr>
+          <tr>
+            <th>Country</th>
+            <td>{{ car.country }}</td>
+          </tr>
+          <tr>
+            <th>Top Speed</th>
+            <td>{{ car.speed }} Km/h</td>
+          </tr>
+          <tr>
+            <th>Power</th>
+            <td>{{ car.hp }} HP</td>
+          </tr>
+          <tr>
+            <th>Torque</th>
+            <td>{{ car.torque }} Nm</td>
+          </tr>
+          <tr>
+            <th>Weight</th>
+            <td>{{ car.weight }} Kg</td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td>{{ car.price }} €</td>
+          </tr>
+          <tr>
+            <th>Release Date</th>
+            <td>{{ car.releaseDate }}</td>
+          </tr>
+          <tr>
+            <th>Electric</th>
+            <td>
+              {{ car.electric ? "Yes" : "No" }}
+            </td>
+          </tr>
+        </table>
       </ion-row>
     </ion-grid>
   </div>
-  <div *ngIf="modif">
+
+  <div *ngIf="modif" class="mt-5 mt-5">
     <ion-item>
       <ion-input type="text" label="Image" [(ngModel)]="car.pictureLink"></ion-input>
     </ion-item>
@@ -89,8 +135,17 @@
     <ion-item>
       <ion-input type="text" label="Date" [(ngModel)]="car.releaseDate"></ion-input>
     </ion-item>
-    <p class="text-center">
-      <ion-button (click)="onModif()">Modify</ion-button>
-    </p>
+    <ion-row class="car-container__btns mt-5">
+      <ion-col>
+        <ion-button (click)="onCancel()" color="danger">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="onModif()" color="success">
+          <ion-icon name="checkmark"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>

@@ -1,3 +1,20 @@
-p  {
-    text-align: justify;
+.car-container {
+    &__btns {
+        display: flex;
+        width: fit-content;
+        margin: auto;
+    }
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    th, td {
+        border: 1px solid #909090;
+        padding: 10px;
+        text-align: center;
+        &:first-child {
+            width: 35%;
+        }
+    }
 }

@@ -1,27 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Bibliotheque</ion-title>
+    <ion-title>Cars</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="page-cars-content">
   <h2 class="page-cars-content__title">List of Cars</h2>
-  <ion-button class="page-cars-content__btn" routerLink="/cars/new">Create</ion-button>
+  <ion-button class="page-cars-content__btn" routerLink="/cars/new">Add</ion-button>
   <ion-grid class="page-cars-content__grid">
     <ion-row class="page-cars-content__grid__row">
-      <ion-col size="4" *ngFor="let car of cars">
+      <ion-col *ngFor="let car of cars">
         <ion-card class="page-cars-content__grid__row__card" [routerLink]="['/cars', car.id]">
           <ion-card-header>
-            <ion-card-title class="page-cars-content__grid__row__card__title">{{car.model}}</ion-card-title>
+            <ion-card-title class="page-cars-content__grid__row__card__title">{{car.brand}}</ion-card-title>
           </ion-card-header>
           <img [src]="car.pictureLink" [alt]="car.model">
+          <ion-card-content>
+            <div class="page-cars-content__grid__row__card__content">
+              <p class="page-cars-content__grid__row__card__content-brand">{{car.model}}</p>
+              <p class="page-cars-content__grid__row__card__content-price">{{car.price.toLocaleString().replace(',', ' ')}} €</p>
+              <p class="page-cars-content__grid__row__card__content-specs">
+                <b>{{car.hp}} HP </b> <b>{{car.torque}} Nm </b> <b>{{car.speed}} km/h </b>
+              </p>
+            </div>
+          </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>Footer</ion-title>
-  </ion-toolbar>
-</ion-footer>
 
